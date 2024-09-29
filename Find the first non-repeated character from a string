@@ -1,0 +1,56 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+/******Problem statement:-Print the first non repeated character from a string*********/
+
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+
+uint8_t Find_First_non_repeated_char(char *str);
+
+int main()
+{
+    unsigned char string[100];
+    printf("Please enter a string\n");
+    scanf("%s",string);
+    Find_First_non_repeated_char(string);
+    return 0;
+    
+}
+uint8_t Find_First_non_repeated_char(char *str)
+{
+    unsigned char Non_repeated_Char[256]={0};
+    unsigned char i,j,count;
+    for(i=0;i<(strlen(str));i++)
+    {
+        count=0;
+        for(j=0;str[j]!='\0';j++)
+        {
+            if(str[i]==str[j] && i!=j)
+            {
+                count=1;
+                break;
+            }
+        }
+        if(count==0)
+        {
+            printf("First Non repeating Char is=%c",str[i]);
+            break;
+        }
+    }
+}
+
+
+/************************************************************************************Expected Output *************************************************************************/
+
+/*
+Please enter a string
+bbccxdf
+First Non repeating Char is=x
+*/
